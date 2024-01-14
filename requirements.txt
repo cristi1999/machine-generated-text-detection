@@ -1,2 +1,9 @@
 python=3.11
 gdown
+torch
+evaluate
+transformers
+numpy
+pandas
+xgboost
+scikit-learn
