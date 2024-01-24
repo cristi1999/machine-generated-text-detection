@@ -44,6 +44,13 @@ def get_pandas_dfs(train_path, val_path, train_sample=None, val_sample=None):
     return train_df, val_df
 
 
+def get_pandas_atomic_dfs(data_path):
+    all_data = read_jsonl(data_path)
+    data_df = pd.DataFrame(all_data).loc[:, ["text", "label"]]
+    
+    return data_df
+
+
 def prepare_datasets(train_df, val_df):
     class_names = ["human", "LLM"]
     features = Features({'text': Value('string'), 'label': ClassLabel(num_classes=2, names=class_names)})
